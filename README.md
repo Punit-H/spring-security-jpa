@@ -1,0 +1,1 @@
+This is a java11/Maven/Spring Boot/Spring Security/JPA project which I created for my learning/curiosity and can be helpful for your reference. 
