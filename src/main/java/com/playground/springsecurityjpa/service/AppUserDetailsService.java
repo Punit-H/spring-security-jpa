@@ -5,6 +5,7 @@ import com.playground.springsecurityjpa.model.User;
 import com.playground.springsecurityjpa.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -22,10 +23,7 @@ public class AppUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         Optional<User> byUserName = userRepository.findByUserName(userName);
-        User user = byUserName.orElseThrow(() -> new UsernameNotFoundException(" Not found " + userName));
-        if(user==null){
-
-        }else[]
+        byUserName.orElseThrow(() -> new UsernameNotFoundException(" Not found "+userName));
         return byUserName.map(AppUserDetail::new).get();
     }
 }
